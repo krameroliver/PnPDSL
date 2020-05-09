@@ -32,7 +32,7 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "de.senacor.com.smt.dsl.SimpleDSL"
-			fileExtensions = "smt"
+			fileExtensions = "pnp"
 			referencedResource = "platform:/resource/de.senacor.com.smt.model/model/smtmetamodel.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}

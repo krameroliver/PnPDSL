@@ -7,7 +7,7 @@
 			class="de.senacor.com.smt.dsl.ui.SimpleDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="smt"
+			extensions="pnp"
 			id="de.senacor.com.smt.dsl.SimpleDSL"
 			name="SimpleDSL Editor">
 		</editor>
@@ -207,7 +207,7 @@
 	<extension point="org.eclipse.core.contenttype.contentTypes">
 		<content-type
 			base-type="org.eclipse.core.runtime.text"
-			file-extensions="smt"
+			file-extensions="pnp"
 			id="de.senacor.com.smt.dsl.SimpleDSL.contenttype"
 			name="SimpleDSL File"
 			priority="normal">
@@ -218,13 +218,13 @@
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
 			class="de.senacor.com.smt.dsl.ui.SimpleDSLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="smt">
+			type="pnp">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 		<resourceServiceProvider
 			class="de.senacor.com.smt.dsl.ui.SimpleDSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-			uriExtension="smt">
+			uriExtension="pnp">
 		</resourceServiceProvider>
 	</extension>
 	<!-- marker definitions for de.senacor.com.smt.dsl.SimpleDSL -->
@@ -261,7 +261,7 @@
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="de.senacor.com.smt.dsl.ui.SimpleDSLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="smt"/>
+			fileExtensions="pnp"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
@@ -404,7 +404,7 @@
 	<extension point="org.eclipse.compare.contentViewers">
 		<viewer id="de.senacor.com.smt.dsl.SimpleDSL.compare.contentViewers"
 			class="de.senacor.com.smt.dsl.ui.SimpleDSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="smt">
+			extensions="pnp">
 		</viewer>
 		<contentTypeBinding
 			contentTypeId="de.senacor.com.smt.dsl.SimpleDSL.contenttype"
@@ -413,7 +413,7 @@
 	<extension point="org.eclipse.compare.contentMergeViewers">
 		<viewer id="de.senacor.com.smt.dsl.SimpleDSL.compare.contentMergeViewers"
 			class="de.senacor.com.smt.dsl.ui.SimpleDSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="smt" label="SimpleDSL Compare">
+			extensions="pnp" label="SimpleDSL Compare">
 		</viewer>
 		<contentTypeBinding
 			contentTypeId="de.senacor.com.smt.dsl.SimpleDSL.contenttype"
@@ -422,12 +422,12 @@
 	<extension point="org.eclipse.ui.editors.documentProviders">
 		<provider id="de.senacor.com.smt.dsl.SimpleDSL.editors.documentProviders"
 			class="de.senacor.com.smt.dsl.ui.SimpleDSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-			extensions="smt">
+			extensions="pnp">
 		</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 		<fileTypes
-			extension="smt"
+			extension="pnp"
 			type="text">
 		</fileTypes>
 	</extension>
