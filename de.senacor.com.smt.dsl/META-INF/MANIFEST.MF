@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: de.senacor.com.smt.dsl
+Bundle-ManifestVersion: 2
+Bundle-Name: de.senacor.com.smt.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.senacor.com.smt.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.senacor.com.smt.model,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ de.senacor.com.smt.utils;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.senacor.com.smt.dsl.serializer,
+ de.senacor.com.smt.dsl.parser.antlr,
+ de.senacor.com.smt.dsl,
+ de.senacor.com.smt.dsl.generator,
+ de.senacor.com.smt.dsl.scoping,
+ de.senacor.com.smt.dsl.services,
+ de.senacor.com.smt.dsl.parser.antlr.internal,
+ de.senacor.com.smt.dsl.formatting2,
+ de.senacor.com.smt.dsl.validation
+Import-Package: org.apache.log4j

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated smtmetamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.senacor.smt.model.smtmetamodel.presentation.SmtmetamodelModelWizardID"
+            name="%_UI_SmtmetamodelModelWizard_label"
+            class="de.senacor.smt.model.smtmetamodel.presentation.SmtmetamodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SmtmetamodelModelFile.gif">
+         <description>%_UI_SmtmetamodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated smtmetamodel -->
+      <editor
+            id="de.senacor.smt.model.smtmetamodel.presentation.SmtmetamodelEditorID"
+            name="%_UI_SmtmetamodelEditor_label"
+            icon="icons/full/obj16/SmtmetamodelModelFile.gif"
+            extensions="smtmetamodel"
+            class="de.senacor.smt.model.smtmetamodel.presentation.SmtmetamodelEditor"
+            contributorClass="de.senacor.smt.model.smtmetamodel.presentation.SmtmetamodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

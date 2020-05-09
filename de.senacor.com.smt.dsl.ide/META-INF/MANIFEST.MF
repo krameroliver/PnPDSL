@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: de.senacor.com.smt.dsl.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: de.senacor.com.smt.dsl.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.senacor.com.smt.dsl.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.senacor.com.smt.dsl,
+ de.senacor.com.smt.model,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: de.senacor.com.smt.dsl.ide.contentassist.antlr,
+ de.senacor.com.smt.dsl.ide.contentassist.antlr.internal

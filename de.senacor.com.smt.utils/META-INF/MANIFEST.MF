@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Utils
+Bundle-SymbolicName: de.senacor.com.smt.utils
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.xtext.xbase;bundle-version="2.20.0",
+ org.eclipse.xtend;bundle-version="2.2.0",
+ org.eclipse.xtext;bundle-version="2.20.0",
+ de.senacor.com.smt.model;bundle-version="1.0.0"
+Export-Package: de.senacor.com.smt.utils
