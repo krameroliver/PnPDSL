@@ -57,7 +57,7 @@ public class SimpleDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Document returns Document
 	 *
 	 * Constraint:
-	 *     (name=EString entites+=Entity*)
+	 *     (name=ID entites+=Entity*)
 	 */
 	protected void sequence_Document(ISerializationContext context, Document semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -81,7 +81,14 @@ public class SimpleDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Field returns Field
 	 *
 	 * Constraint:
-	 *     (name=EString type=DataType? length=INT? preciscion=INT? scale=INT?)
+	 *     (
+	 *         name=EString 
+	 *         type=DataType? 
+	 *         length=INT? 
+	 *         preciscion=INT? 
+	 *         scale=INT? 
+	 *         Key=key?
+	 *     )
 	 */
 	protected void sequence_Field(ISerializationContext context, Field semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

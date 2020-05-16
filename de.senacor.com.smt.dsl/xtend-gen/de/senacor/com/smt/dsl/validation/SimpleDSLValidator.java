@@ -8,6 +8,7 @@ import de.senacor.smt.model.smtmetamodel.Entity;
 import de.senacor.smt.model.smtmetamodel.Field;
 import de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage;
 import javax.inject.Inject;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.validation.Check;
@@ -45,6 +46,23 @@ public class SimpleDSLValidator extends AbstractSimpleDSLValidator {
       if ((Objects.equal(entity.getName(), objDesc.getName().getLastSegment()) && (!Objects.equal(this.qualifiedNameProvider.getFullyQualifiedName(entity), objDesc.getName())))) {
         this.error("Entity name must be globally unique", SmtmetamodelPackage.Literals.NAMED_ELEMENT__NAME);
       }
+    }
+  }
+  
+  @Check
+  public void checkKeyExist(final Entity entity) {
+    int keys = 0;
+    EList<Field> _fields = entity.getFields();
+    for (final Field field : _fields) {
+      String _key = field.getKey();
+      boolean _equals = Objects.equal(_key, "T");
+      if (_equals) {
+        int _keys = keys;
+        keys = (_keys + 1);
+      }
+    }
+    if ((keys < 1)) {
+      this.error("Es muss mindestens ein Key Existieren!", SmtmetamodelPackage.Literals.NAMED_ELEMENT__NAME);
     }
   }
 }

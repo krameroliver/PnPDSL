@@ -17,6 +17,7 @@ package de.senacor.smt.model.smtmetamodel;
  *   <li>{@link de.senacor.smt.model.smtmetamodel.Field#getLength <em>Length</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.Field#getPreciscion <em>Preciscion</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.Field#getScale <em>Scale</em>}</li>
+ *   <li>{@link de.senacor.smt.model.smtmetamodel.Field#getKey <em>Key</em>}</li>
  * </ul>
  *
  * @see de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage#getField()
@@ -138,5 +139,27 @@ public interface Field extends NamedElement {
 	 * @generated
 	 */
 	void setScale(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Key</em>' attribute.
+	 * @see #setKey(String)
+	 * @see de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage#getField_Key()
+	 * @model
+	 * @generated
+	 */
+	String getKey();
+
+	/**
+	 * Sets the value of the '{@link de.senacor.smt.model.smtmetamodel.Field#getKey <em>Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Key</em>' attribute.
+	 * @see #getKey()
+	 * @generated
+	 */
+	void setKey(String value);
 
 } // Field

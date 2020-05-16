@@ -46,6 +46,7 @@ public class SimpleDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFieldAccess().getGroup_5(), "rule__Field__Group_5__0");
 			builder.put(grammarAccess.getFieldAccess().getGroup_6(), "rule__Field__Group_6__0");
 			builder.put(grammarAccess.getFieldAccess().getGroup_7(), "rule__Field__Group_7__0");
+			builder.put(grammarAccess.getFieldAccess().getGroup_8(), "rule__Field__Group_8__0");
 			builder.put(grammarAccess.getRelationshipAccess().getGroup(), "rule__Relationship__Group__0");
 			builder.put(grammarAccess.getDocumentAccess().getNameAssignment_2(), "rule__Document__NameAssignment_2");
 			builder.put(grammarAccess.getDocumentAccess().getEntitesAssignment_3(), "rule__Document__EntitesAssignment_3");
@@ -59,6 +60,7 @@ public class SimpleDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFieldAccess().getLengthAssignment_5_1(), "rule__Field__LengthAssignment_5_1");
 			builder.put(grammarAccess.getFieldAccess().getPreciscionAssignment_6_1(), "rule__Field__PreciscionAssignment_6_1");
 			builder.put(grammarAccess.getFieldAccess().getScaleAssignment_7_1(), "rule__Field__ScaleAssignment_7_1");
+			builder.put(grammarAccess.getFieldAccess().getKeyAssignment_8_1(), "rule__Field__KeyAssignment_8_1");
 			builder.put(grammarAccess.getRelationshipAccess().getNameAssignment_2(), "rule__Relationship__NameAssignment_2");
 			builder.put(grammarAccess.getRelationshipAccess().getToEntityAssignment_5(), "rule__Relationship__ToEntityAssignment_5");
 		}

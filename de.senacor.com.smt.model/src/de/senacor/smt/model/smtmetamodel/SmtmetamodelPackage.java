@@ -269,13 +269,22 @@ public interface SmtmetamodelPackage extends EPackage {
 	int FIELD__SCALE = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__KEY = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int FIELD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Field</em>' class.
@@ -504,6 +513,17 @@ public interface SmtmetamodelPackage extends EPackage {
 	EAttribute getField_Scale();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.senacor.smt.model.smtmetamodel.Field#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see de.senacor.smt.model.smtmetamodel.Field#getKey()
+	 * @see #getField()
+	 * @generated
+	 */
+	EAttribute getField_Key();
+
+	/**
 	 * Returns the meta object for class '{@link de.senacor.smt.model.smtmetamodel.Relationship <em>Relationship</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -687,6 +707,14 @@ public interface SmtmetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FIELD__SCALE = eINSTANCE.getField_Scale();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FIELD__KEY = eINSTANCE.getField_Key();
 
 		/**
 		 * The meta object literal for the '{@link de.senacor.smt.model.smtmetamodel.impl.RelationshipImpl <em>Relationship</em>}' class.

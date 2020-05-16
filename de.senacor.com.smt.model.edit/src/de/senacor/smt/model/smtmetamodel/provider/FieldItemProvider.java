@@ -65,6 +65,7 @@ public class FieldItemProvider
 			addLengthPropertyDescriptor(object);
 			addPreciscionPropertyDescriptor(object);
 			addScalePropertyDescriptor(object);
+			addKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -180,6 +181,28 @@ public class FieldItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Field_Key_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Field_Key_feature", "_UI_Field_type"),
+				 SmtmetamodelPackage.Literals.FIELD__KEY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Field.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,6 +245,7 @@ public class FieldItemProvider
 			case SmtmetamodelPackage.FIELD__LENGTH:
 			case SmtmetamodelPackage.FIELD__PRECISCION:
 			case SmtmetamodelPackage.FIELD__SCALE:
+			case SmtmetamodelPackage.FIELD__KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

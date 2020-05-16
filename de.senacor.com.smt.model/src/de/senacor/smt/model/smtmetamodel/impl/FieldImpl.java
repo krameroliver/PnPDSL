@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.FieldImpl#getLength <em>Length</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.FieldImpl#getPreciscion <em>Preciscion</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.FieldImpl#getScale <em>Scale</em>}</li>
+ *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.FieldImpl#getKey <em>Key</em>}</li>
  * </ul>
  *
  * @generated
@@ -136,6 +137,26 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 	 * @ordered
 	 */
 	protected int scale = SCALE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String KEY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected String key = KEY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -320,6 +341,29 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 	 * @generated
 	 */
 	@Override
+	public String getKey() {
+		return key;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setKey(String newKey) {
+		String oldKey = key;
+		key = newKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SmtmetamodelPackage.FIELD__KEY, oldKey, key));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SmtmetamodelPackage.FIELD__ENTITY:
@@ -378,6 +422,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return getPreciscion();
 			case SmtmetamodelPackage.FIELD__SCALE:
 				return getScale();
+			case SmtmetamodelPackage.FIELD__KEY:
+				return getKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -407,6 +453,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return;
 			case SmtmetamodelPackage.FIELD__SCALE:
 				setScale((Integer)newValue);
+				return;
+			case SmtmetamodelPackage.FIELD__KEY:
+				setKey((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -438,6 +487,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 			case SmtmetamodelPackage.FIELD__SCALE:
 				setScale(SCALE_EDEFAULT);
 				return;
+			case SmtmetamodelPackage.FIELD__KEY:
+				setKey(KEY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -462,6 +514,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return preciscion != PRECISCION_EDEFAULT;
 			case SmtmetamodelPackage.FIELD__SCALE:
 				return scale != SCALE_EDEFAULT;
+			case SmtmetamodelPackage.FIELD__KEY:
+				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -486,6 +540,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 		result.append(preciscion);
 		result.append(", scale: ");
 		result.append(scale);
+		result.append(", Key: ");
+		result.append(key);
 		result.append(')');
 		return result.toString();
 	}

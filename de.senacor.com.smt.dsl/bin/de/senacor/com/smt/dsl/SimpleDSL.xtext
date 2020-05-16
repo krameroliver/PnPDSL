@@ -15,6 +15,12 @@ Document returns Document:
 EString returns ecore::EString:
 	STRING | ID;
 	
+terminal key : 'T'|'F';
+
+
+
+
+	
 QualifiedName:
 	(ID '.')* ID
 ;
@@ -35,6 +41,7 @@ Field returns Field:
 		('Length' length=INT)?
 		('Precision' preciscion=INT)?
 		('Scale' scale=INT)?
+		('Key' Key=key)?
 	'}'
 ;
 
@@ -44,6 +51,8 @@ Relationship returns Relationship:
 		'to' toEntity=[Entity|QualifiedName]
 	'}'
 ;
+
+
 
 enum DataType returns DataType:
 	STRING = 'STRING' | NUMBER = 'NUMBER' | DATE = 'DATE'

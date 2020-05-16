@@ -1,5 +1,6 @@
 package de.senacor.com.smt.dsl.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import de.senacor.smt.model.smtmetamodel.DataType;
 import de.senacor.smt.model.smtmetamodel.Entity;
@@ -31,17 +32,86 @@ public class SQLDDLGenerator extends AbstractGenerator {
   
   public CharSequence compile(final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("CREATE TABLE ");
+    CharSequence _genDelete = this.genDelete(entity);
+    _builder.append(_genDelete);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("CREATE TABLE IF NOT EXISTS ");
     String _upperCase = entity.getName().toUpperCase();
     _builder.append(_upperCase);
-    _builder.append(" (");
+    _builder.append("_HUB (");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    CharSequence _addCollumns = this.addCollumns(entity);
-    _builder.append(_addCollumns, "\t");
+    CharSequence _keyColls = this.keyColls(entity);
+    _builder.append(_keyColls);
     _builder.newLineIfNotEmpty();
-    _builder.append(") ");
+    _builder.append(");");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("CREATE TABLE IF NOT EXISTS ");
+    String _upperCase_1 = entity.getName().toUpperCase();
+    _builder.append(_upperCase_1);
+    _builder.append("_SAT (");
+    _builder.newLineIfNotEmpty();
+    CharSequence _addCollumns = this.addCollumns(entity);
+    _builder.append(_addCollumns);
+    _builder.newLineIfNotEmpty();
+    _builder.append(");");
+    _builder.newLine();
+    CharSequence _addAlter = this.addAlter(entity);
+    _builder.append(_addAlter);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence genDelete(final Entity entity) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("DROP TABLE IF EXISTS ");
+    String _upperCase = entity.getName().toUpperCase();
+    _builder.append(_upperCase);
+    _builder.append("_SAT;");
+    _builder.newLineIfNotEmpty();
+    _builder.append("DROP TABLE IF EXISTS ");
+    String _upperCase_1 = entity.getName().toUpperCase();
+    _builder.append(_upperCase_1);
+    _builder.append("_HUB;");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence keyColls(final Entity entity) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Field> _fields = entity.getFields();
+      for(final Field field : _fields) {
+        {
+          String _key = field.getKey();
+          boolean _equals = Objects.equal(_key, "T");
+          if (_equals) {
+            _builder.append(" ");
+            String _upperCase = field.getName().toUpperCase();
+            _builder.append(_upperCase);
+            _builder.append(" ");
+            String _dataTypeString = this.getDataTypeString(field);
+            _builder.append(_dataTypeString);
+            _builder.newLineIfNotEmpty();
+            {
+              Field _last = IterableExtensions.<Field>last(entity.getFields());
+              boolean _notEquals = (!Objects.equal(field, _last));
+              if (_notEquals) {
+                _builder.append(",");
+              } else {
+                _builder.append(" ");
+              }
+            }
+            _builder.append("PRIMARY KEY( ");
+            String _upperCase_1 = field.getName().toUpperCase();
+            _builder.append(_upperCase_1);
+            _builder.append(")");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -57,11 +127,57 @@ public class SQLDDLGenerator extends AbstractGenerator {
         _builder.append(_dataTypeString);
         {
           Field _last = IterableExtensions.<Field>last(entity.getFields());
-          boolean _tripleNotEquals = (field != _last);
-          if (_tripleNotEquals) {
+          boolean _notEquals = (!Objects.equal(field, _last));
+          if (_notEquals) {
+            _builder.append(",");
+          } else {
           }
         }
-        _builder.append(",\t");
+        _builder.newLineIfNotEmpty();
+        {
+          String _key = field.getKey();
+          boolean _equals = Objects.equal(_key, "T");
+          if (_equals) {
+            _builder.append("PRIMARY KEY( ");
+            String _upperCase_1 = field.getName().toUpperCase();
+            _builder.append(_upperCase_1);
+            _builder.append("),");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence addAlter(final Entity entity) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Field> _fields = entity.getFields();
+      for(final Field field : _fields) {
+        {
+          String _key = field.getKey();
+          boolean _equals = Objects.equal(_key, "T");
+          if (_equals) {
+            _builder.append("ALTER TABLE ");
+            String _upperCase = entity.getName().toUpperCase();
+            _builder.append(_upperCase);
+            _builder.append("_SAT ADD CONSTRAINT ");
+            String _upperCase_1 = field.getName().toUpperCase();
+            _builder.append(_upperCase_1);
+            _builder.append("_FOREIGN_KEY FOREIGN KEY  (");
+            String _upperCase_2 = field.getName().toUpperCase();
+            _builder.append(_upperCase_2);
+            _builder.append(") REFERENCES ");
+            String _upperCase_3 = entity.getName().toUpperCase();
+            _builder.append(_upperCase_3);
+            _builder.append("_HUB (");
+            String _upperCase_4 = field.getName().toUpperCase();
+            _builder.append(_upperCase_4);
+            _builder.append(") ON DELETE CASCADE ON UPDATE CASCADE;");
+          }
+        }
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder;

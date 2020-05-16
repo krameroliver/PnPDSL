@@ -90,20 +90,19 @@ ruleDocument returns [EObject current=null]
 		}
 		(
 			(
+				lv_name_2_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getDocumentAccess().getNameEStringParserRuleCall_2_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getDocumentAccess().getNameIDTerminalRuleCall_2_0());
 				}
-				lv_name_2_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDocumentRule());
+						$current = createModelElement(grammarAccess.getDocumentRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"name",
 						lv_name_2_0,
-						"de.senacor.com.smt.dsl.SimpleDSL.EString");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -523,9 +522,33 @@ ruleField returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_12='}'
+		(
+			otherlv_12='Key'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getFieldAccess().getKeyKeyword_8_0());
+			}
+			(
+				(
+					lv_Key_13_0=RULE_KEY
+					{
+						newLeafNode(lv_Key_13_0, grammarAccess.getFieldAccess().getKeyKeyTerminalRuleCall_8_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFieldRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"Key",
+							lv_Key_13_0,
+							"de.senacor.com.smt.dsl.SimpleDSL.key");
+					}
+				)
+			)
+		)?
+		otherlv_14='}'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_14, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -641,6 +664,8 @@ ruleDataType returns [Enumerator current=null]
 		)
 	)
 ;
+
+RULE_KEY : ('T'|'F');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

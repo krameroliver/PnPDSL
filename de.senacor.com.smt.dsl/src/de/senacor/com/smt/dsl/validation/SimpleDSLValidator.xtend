@@ -38,4 +38,17 @@ class SimpleDSLValidator extends AbstractSimpleDSLValidator {
 			}
 		}
 	}
+	
+	@Check
+	def checkKeyExist(Entity entity){
+		var keys = 0;
+		for(field : entity.fields){
+			if(field.key == 'T'){
+				keys +=1;
+			}
+		}
+		if(keys<1){
+			error("Es muss mindestens ein Key Existieren!", SmtmetamodelPackage.Literals.NAMED_ELEMENT__NAME)
+		}
+	}
 }

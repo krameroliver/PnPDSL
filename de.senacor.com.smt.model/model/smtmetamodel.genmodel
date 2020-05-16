@@ -30,6 +30,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smtmetamodel.ecore#//Field/length"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smtmetamodel.ecore#//Field/preciscion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smtmetamodel.ecore#//Field/scale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smtmetamodel.ecore#//Field/Key"/>
     </genClasses>
     <genClasses ecoreClass="smtmetamodel.ecore#//Relationship">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference smtmetamodel.ecore#//Relationship/fromEntity"/>

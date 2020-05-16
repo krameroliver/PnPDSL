@@ -275,6 +275,16 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 	 * @generated
 	 */
 	@Override
+	public EAttribute getField_Key() {
+		return (EAttribute)fieldEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRelationship() {
 		return relationshipEClass;
 	}
@@ -355,6 +365,7 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 		createEAttribute(fieldEClass, FIELD__LENGTH);
 		createEAttribute(fieldEClass, FIELD__PRECISCION);
 		createEAttribute(fieldEClass, FIELD__SCALE);
+		createEAttribute(fieldEClass, FIELD__KEY);
 
 		relationshipEClass = createEClass(RELATIONSHIP);
 		createEReference(relationshipEClass, RELATIONSHIP__FROM_ENTITY);
@@ -415,6 +426,7 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 		initEAttribute(getField_Length(), ecorePackage.getEInt(), "length", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_Preciscion(), ecorePackage.getEInt(), "preciscion", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_Scale(), ecorePackage.getEInt(), "scale", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getField_Key(), ecorePackage.getEString(), "Key", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relationshipEClass, Relationship.class, "Relationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelationship_FromEntity(), this.getEntity(), this.getEntity_Relationships(), "fromEntity", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

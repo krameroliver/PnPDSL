@@ -33,17 +33,19 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cDocumentAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cPackageKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Assignment cEntitesAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cEntitesEntityParserRuleCall_3_0 = (RuleCall)cEntitesAssignment_3.eContents().get(0);
 		
 		//Document:
 		//	{Document}
-		//	'package' name=EString
+		//	'package' name=ID //vordefiniert ist ESTRING
+		//
 		//	entites+=Entity*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Document} 'package' name=EString entites+=Entity*
+		//{Document} 'package' name=ID //vordefiniert ist ESTRING
+		//entites+=Entity*
 		public Group getGroup() { return cGroup; }
 		
 		//{Document}
@@ -52,12 +54,13 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//'package'
 		public Keyword getPackageKeyword_1() { return cPackageKeyword_1; }
 		
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
+		////vordefiniert ist ESTRING
 		//entites+=Entity*
 		public Assignment getEntitesAssignment_3() { return cEntitesAssignment_3; }
 		
@@ -255,17 +258,21 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cScaleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cScaleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final RuleCall cScaleINTTerminalRuleCall_7_1_0 = (RuleCall)cScaleAssignment_7_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cKeyKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cKeyAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cKeyKeyTerminalRuleCall_8_1_0 = (RuleCall)cKeyAssignment_8_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Field:
 		//	{Field}
 		//	'Field' name=EString '{' ('Type' type=DataType)? ('Length' length=INT)? ('Precision' preciscion=INT)? ('Scale'
-		//	scale=INT)?
+		//	scale=INT)? ('Key' Key=key)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Field} 'Field' name=EString '{' ('Type' type=DataType)? ('Length' length=INT)? ('Precision' preciscion=INT)? ('Scale'
-		//scale=INT)? '}'
+		//scale=INT)? ('Key' Key=key)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Field}
@@ -331,8 +338,20 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getScaleINTTerminalRuleCall_7_1_0() { return cScaleINTTerminalRuleCall_7_1_0; }
 		
+		//('Key' Key=key)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'Key'
+		public Keyword getKeyKeyword_8_0() { return cKeyKeyword_8_0; }
+		
+		//Key=key
+		public Assignment getKeyAssignment_8_1() { return cKeyAssignment_8_1; }
+		
+		//key
+		public RuleCall getKeyKeyTerminalRuleCall_8_1_0() { return cKeyKeyTerminalRuleCall_8_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class RelationshipElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.senacor.com.smt.dsl.SimpleDSL.Relationship");
@@ -427,6 +446,7 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final DocumentElements pDocument;
 	private final EStringElements pEString;
+	private final TerminalRule tKey;
 	private final QualifiedNameElements pQualifiedName;
 	private final EntityElements pEntity;
 	private final FieldElements pField;
@@ -444,6 +464,7 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pDocument = new DocumentElements();
 		this.pEString = new EStringElements();
+		this.tKey = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "de.senacor.com.smt.dsl.SimpleDSL.key");
 		this.pQualifiedName = new QualifiedNameElements();
 		this.pEntity = new EntityElements();
 		this.pField = new FieldElements();
@@ -480,7 +501,8 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Document:
 	//	{Document}
-	//	'package' name=EString
+	//	'package' name=ID //vordefiniert ist ESTRING
+	//
 	//	entites+=Entity*;
 	public DocumentElements getDocumentAccess() {
 		return pDocument;
@@ -498,6 +520,12 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEStringRule() {
 		return getEStringAccess().getRule();
+	}
+	
+	//terminal key:
+	//	'T' | 'F';
+	public TerminalRule getKeyRule() {
+		return tKey;
 	}
 	
 	//QualifiedName:
@@ -528,7 +556,7 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//Field:
 	//	{Field}
 	//	'Field' name=EString '{' ('Type' type=DataType)? ('Length' length=INT)? ('Precision' preciscion=INT)? ('Scale'
-	//	scale=INT)?
+	//	scale=INT)? ('Key' Key=key)?
 	//	'}';
 	public FieldElements getFieldAccess() {
 		return pField;

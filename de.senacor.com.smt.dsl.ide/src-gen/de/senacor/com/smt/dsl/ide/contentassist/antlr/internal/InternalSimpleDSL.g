@@ -1268,6 +1268,7 @@ rule__Field__Group__8
 	}
 :
 	rule__Field__Group__8__Impl
+	rule__Field__Group__9
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1279,9 +1280,35 @@ rule__Field__Group__8__Impl
 	}
 :
 (
-	{ before(grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_8()); }
+	{ before(grammarAccess.getFieldAccess().getGroup_8()); }
+	(rule__Field__Group_8__0)?
+	{ after(grammarAccess.getFieldAccess().getGroup_8()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Field__Group__9
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Field__Group__9__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Field__Group__9__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_9()); }
 	'}'
-	{ after(grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_8()); }
+	{ after(grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_9()); }
 )
 ;
 finally {
@@ -1505,6 +1532,60 @@ finally {
 }
 
 
+rule__Field__Group_8__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Field__Group_8__0__Impl
+	rule__Field__Group_8__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Field__Group_8__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getFieldAccess().getKeyKeyword_8_0()); }
+	'Key'
+	{ after(grammarAccess.getFieldAccess().getKeyKeyword_8_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Field__Group_8__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Field__Group_8__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Field__Group_8__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getFieldAccess().getKeyAssignment_8_1()); }
+	(rule__Field__KeyAssignment_8_1)
+	{ after(grammarAccess.getFieldAccess().getKeyAssignment_8_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__Relationship__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -1700,9 +1781,9 @@ rule__Document__NameAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getDocumentAccess().getNameEStringParserRuleCall_2_0()); }
-		ruleEString
-		{ after(grammarAccess.getDocumentAccess().getNameEStringParserRuleCall_2_0()); }
+		{ before(grammarAccess.getDocumentAccess().getNameIDTerminalRuleCall_2_0()); }
+		RULE_ID
+		{ after(grammarAccess.getDocumentAccess().getNameIDTerminalRuleCall_2_0()); }
 	)
 ;
 finally {
@@ -1874,6 +1955,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Field__KeyAssignment_8_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getFieldAccess().getKeyKeyTerminalRuleCall_8_1_0()); }
+		RULE_KEY
+		{ after(grammarAccess.getFieldAccess().getKeyKeyTerminalRuleCall_8_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Relationship__NameAssignment_2
 	@init {
 		int stackSize = keepStackSize();
@@ -1907,6 +2003,8 @@ rule__Relationship__ToEntityAssignment_5
 finally {
 	restoreStackSize(stackSize);
 }
+
+RULE_KEY : ('T'|'F');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
