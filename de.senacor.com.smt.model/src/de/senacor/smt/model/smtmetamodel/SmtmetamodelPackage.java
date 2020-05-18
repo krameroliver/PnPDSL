@@ -187,13 +187,22 @@ public interface SmtmetamodelPackage extends EPackage {
 	int ENTITY__RELATIONSHIPS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Includes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__INCLUDES = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int ENTITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Entity</em>' class.
@@ -352,6 +361,52 @@ public interface SmtmetamodelPackage extends EPackage {
 	int RELATIONSHIP_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.senacor.smt.model.smtmetamodel.impl.IncludesImpl <em>Includes</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.senacor.smt.model.smtmetamodel.impl.IncludesImpl
+	 * @see de.senacor.smt.model.smtmetamodel.impl.SmtmetamodelPackageImpl#getIncludes()
+	 * @generated
+	 */
+	int INCLUDES = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDES__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Field</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDES__FIELD = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Includes</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDES_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Includes</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDES_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.senacor.smt.model.smtmetamodel.DataType <em>Data Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,7 +414,7 @@ public interface SmtmetamodelPackage extends EPackage {
 	 * @see de.senacor.smt.model.smtmetamodel.impl.SmtmetamodelPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 5;
+	int DATA_TYPE = 6;
 
 
 	/**
@@ -446,6 +501,17 @@ public interface SmtmetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEntity_Relationships();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.senacor.smt.model.smtmetamodel.Entity#getIncludes <em>Includes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Includes</em>'.
+	 * @see de.senacor.smt.model.smtmetamodel.Entity#getIncludes()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EReference getEntity_Includes();
 
 	/**
 	 * Returns the meta object for class '{@link de.senacor.smt.model.smtmetamodel.Field <em>Field</em>}'.
@@ -556,6 +622,27 @@ public interface SmtmetamodelPackage extends EPackage {
 	EReference getRelationship_ToEntity();
 
 	/**
+	 * Returns the meta object for class '{@link de.senacor.smt.model.smtmetamodel.Includes <em>Includes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Includes</em>'.
+	 * @see de.senacor.smt.model.smtmetamodel.Includes
+	 * @generated
+	 */
+	EClass getIncludes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.senacor.smt.model.smtmetamodel.Includes#getField <em>Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Field</em>'.
+	 * @see de.senacor.smt.model.smtmetamodel.Includes#getField()
+	 * @see #getIncludes()
+	 * @generated
+	 */
+	EReference getIncludes_Field();
+
+	/**
 	 * Returns the meta object for enum '{@link de.senacor.smt.model.smtmetamodel.DataType <em>Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,6 +746,14 @@ public interface SmtmetamodelPackage extends EPackage {
 		EReference ENTITY__RELATIONSHIPS = eINSTANCE.getEntity_Relationships();
 
 		/**
+		 * The meta object literal for the '<em><b>Includes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTITY__INCLUDES = eINSTANCE.getEntity_Includes();
+
+		/**
 		 * The meta object literal for the '{@link de.senacor.smt.model.smtmetamodel.impl.FieldImpl <em>Field</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -741,6 +836,24 @@ public interface SmtmetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RELATIONSHIP__TO_ENTITY = eINSTANCE.getRelationship_ToEntity();
+
+		/**
+		 * The meta object literal for the '{@link de.senacor.smt.model.smtmetamodel.impl.IncludesImpl <em>Includes</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.senacor.smt.model.smtmetamodel.impl.IncludesImpl
+		 * @see de.senacor.smt.model.smtmetamodel.impl.SmtmetamodelPackageImpl#getIncludes()
+		 * @generated
+		 */
+		EClass INCLUDES = eINSTANCE.getIncludes();
+
+		/**
+		 * The meta object literal for the '<em><b>Field</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INCLUDES__FIELD = eINSTANCE.getIncludes_Field();
 
 		/**
 		 * The meta object literal for the '{@link de.senacor.smt.model.smtmetamodel.DataType <em>Data Type</em>}' enum.

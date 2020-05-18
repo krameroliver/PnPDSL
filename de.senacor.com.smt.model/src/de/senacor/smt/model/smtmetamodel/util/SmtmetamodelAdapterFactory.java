@@ -88,6 +88,10 @@ public class SmtmetamodelAdapterFactory extends AdapterFactoryImpl {
 				return createRelationshipAdapter();
 			}
 			@Override
+			public Adapter caseIncludes(Includes object) {
+				return createIncludesAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -174,6 +178,20 @@ public class SmtmetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRelationshipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.senacor.smt.model.smtmetamodel.Includes <em>Includes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.senacor.smt.model.smtmetamodel.Includes
+	 * @generated
+	 */
+	public Adapter createIncludesAdapter() {
 		return null;
 	}
 

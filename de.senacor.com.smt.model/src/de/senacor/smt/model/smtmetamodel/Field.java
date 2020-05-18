@@ -2,7 +2,6 @@
  */
 package de.senacor.smt.model.smtmetamodel;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Field</b></em>'.

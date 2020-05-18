@@ -164,6 +164,29 @@ public class SmtmetamodelItemProviderAdapterFactory extends SmtmetamodelAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.senacor.smt.model.smtmetamodel.Includes} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IncludesItemProvider includesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.senacor.smt.model.smtmetamodel.Includes}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIncludesAdapter() {
+		if (includesItemProvider == null) {
+			includesItemProvider = new IncludesItemProvider(this);
+		}
+
+		return includesItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,6 +295,7 @@ public class SmtmetamodelItemProviderAdapterFactory extends SmtmetamodelAdapterF
 		if (entityItemProvider != null) entityItemProvider.dispose();
 		if (fieldItemProvider != null) fieldItemProvider.dispose();
 		if (relationshipItemProvider != null) relationshipItemProvider.dispose();
+		if (includesItemProvider != null) includesItemProvider.dispose();
 	}
 
 }

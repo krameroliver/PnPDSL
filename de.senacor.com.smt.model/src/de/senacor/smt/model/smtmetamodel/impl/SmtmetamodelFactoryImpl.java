@@ -61,6 +61,7 @@ public class SmtmetamodelFactoryImpl extends EFactoryImpl implements Smtmetamode
 			case SmtmetamodelPackage.ENTITY: return createEntity();
 			case SmtmetamodelPackage.FIELD: return createField();
 			case SmtmetamodelPackage.RELATIONSHIP: return createRelationship();
+			case SmtmetamodelPackage.INCLUDES: return createIncludes();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -138,6 +139,17 @@ public class SmtmetamodelFactoryImpl extends EFactoryImpl implements Smtmetamode
 	public Relationship createRelationship() {
 		RelationshipImpl relationship = new RelationshipImpl();
 		return relationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Includes createIncludes() {
+		IncludesImpl includes = new IncludesImpl();
+		return includes;
 	}
 
 	/**

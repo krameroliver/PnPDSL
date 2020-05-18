@@ -100,6 +100,13 @@ public class SmtmetamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SmtmetamodelPackage.INCLUDES: {
+				Includes includes = (Includes)theEObject;
+				T result = caseIncludes(includes);
+				if (result == null) result = caseNamedElement(includes);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -176,6 +183,21 @@ public class SmtmetamodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRelationship(Relationship object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Includes</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Includes</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIncludes(Includes object) {
 		return null;
 	}
 

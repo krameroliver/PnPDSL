@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.senacor.smt.model.smtmetamodel.Entity#getDocument <em>Document</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.Entity#getFields <em>Fields</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.Entity#getRelationships <em>Relationships</em>}</li>
+ *   <li>{@link de.senacor.smt.model.smtmetamodel.Entity#getIncludes <em>Includes</em>}</li>
  * </ul>
  *
  * @see de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage#getEntity()
@@ -74,6 +75,18 @@ public interface Entity extends NamedElement {
 	 * @generated
 	 */
 	EList<Relationship> getRelationships();
+
+	/**
+	 * Returns the value of the '<em><b>Includes</b></em>' containment reference list.
+	 * The list contents are of type {@link de.senacor.smt.model.smtmetamodel.Includes}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Includes</em>' containment reference list.
+	 * @see de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage#getEntity_Includes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Includes> getIncludes();
 
 
 

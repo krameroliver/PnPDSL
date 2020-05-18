@@ -141,19 +141,30 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRelationshipsAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
 		private final RuleCall cRelationshipsRelationshipParserRuleCall_5_3_1_0 = (RuleCall)cRelationshipsAssignment_5_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cIncludesKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cIncludesAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cIncludesIncludesParserRuleCall_6_2_0 = (RuleCall)cIncludesAssignment_6_2.eContents().get(0);
+		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
+		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
+		private final Assignment cIncludesAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
+		private final RuleCall cIncludesIncludesParserRuleCall_6_3_1_0 = (RuleCall)cIncludesAssignment_6_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Entity:
 		//	{Entity}
 		//	'Entity'
 		//	name=EString
 		//	'{' ('fields' '{' fields+=Field ("," fields+=Field)* '}')? ('relationships' '{' relationships+=Relationship (','
-		//	relationships+=Relationship)* '}')?
+		//	relationships+=Relationship)* '}')? ('includes' '{' Includes+=Includes (',' Includes+=Includes)* '}')?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Entity} 'Entity' name=EString '{' ('fields' '{' fields+=Field ("," fields+=Field)* '}')? ('relationships' '{'
-		//relationships+=Relationship (',' relationships+=Relationship)* '}')? '}'
+		//relationships+=Relationship (',' relationships+=Relationship)* '}')? ('includes' '{' Includes+=Includes (','
+		//Includes+=Includes)* '}')? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Entity}
@@ -231,8 +242,38 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_4() { return cRightCurlyBracketKeyword_5_4; }
 		
+		//('includes' '{' Includes+=Includes (',' Includes+=Includes)* '}')?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'includes'
+		public Keyword getIncludesKeyword_6_0() { return cIncludesKeyword_6_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+		
+		//Includes+=Includes
+		public Assignment getIncludesAssignment_6_2() { return cIncludesAssignment_6_2; }
+		
+		//Includes
+		public RuleCall getIncludesIncludesParserRuleCall_6_2_0() { return cIncludesIncludesParserRuleCall_6_2_0; }
+		
+		//(',' Includes+=Includes)*
+		public Group getGroup_6_3() { return cGroup_6_3; }
+		
+		//','
+		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
+		
+		//Includes+=Includes
+		public Assignment getIncludesAssignment_6_3_1() { return cIncludesAssignment_6_3_1; }
+		
+		//Includes
+		public RuleCall getIncludesIncludesParserRuleCall_6_3_1_0() { return cIncludesIncludesParserRuleCall_6_3_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class FieldElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.senacor.com.smt.dsl.SimpleDSL.Field");
@@ -407,6 +448,85 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
+	public class IncludesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.senacor.com.smt.dsl.SimpleDSL.Includes");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cIncludesAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cINCLUDESKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cFieldsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cFieldAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cFieldFieldParserRuleCall_4_2_0 = (RuleCall)cFieldAssignment_4_2.eContents().get(0);
+		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
+		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Assignment cFieldAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
+		private final RuleCall cFieldFieldParserRuleCall_4_3_1_0 = (RuleCall)cFieldAssignment_4_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Includes:
+		//	{Includes}
+		//	'INCLUDES'
+		//	name=EString
+		//	'{' ('fields' '{' field+=Field ("," field+=Field)* '}')?
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Includes} 'INCLUDES' name=EString '{' ('fields' '{' field+=Field ("," field+=Field)* '}')? '}'
+		public Group getGroup() { return cGroup; }
+		
+		//{Includes}
+		public Action getIncludesAction_0() { return cIncludesAction_0; }
+		
+		//'INCLUDES'
+		public Keyword getINCLUDESKeyword_1() { return cINCLUDESKeyword_1; }
+		
+		//name=EString
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		
+		//('fields' '{' field+=Field ("," field+=Field)* '}')?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'fields'
+		public Keyword getFieldsKeyword_4_0() { return cFieldsKeyword_4_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
+		
+		//field+=Field
+		public Assignment getFieldAssignment_4_2() { return cFieldAssignment_4_2; }
+		
+		//Field
+		public RuleCall getFieldFieldParserRuleCall_4_2_0() { return cFieldFieldParserRuleCall_4_2_0; }
+		
+		//("," field+=Field)*
+		public Group getGroup_4_3() { return cGroup_4_3; }
+		
+		//","
+		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
+		
+		//field+=Field
+		public Assignment getFieldAssignment_4_3_1() { return cFieldAssignment_4_3_1; }
+		
+		//Field
+		public RuleCall getFieldFieldParserRuleCall_4_3_1_0() { return cFieldFieldParserRuleCall_4_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
 	
 	public class DataTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "de.senacor.com.smt.dsl.SimpleDSL.DataType");
@@ -451,6 +571,7 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private final EntityElements pEntity;
 	private final FieldElements pField;
 	private final RelationshipElements pRelationship;
+	private final IncludesElements pIncludes;
 	private final DataTypeElements eDataType;
 	
 	private final Grammar grammar;
@@ -469,6 +590,7 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEntity = new EntityElements();
 		this.pField = new FieldElements();
 		this.pRelationship = new RelationshipElements();
+		this.pIncludes = new IncludesElements();
 		this.eDataType = new DataTypeElements();
 	}
 	
@@ -543,7 +665,7 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//	'Entity'
 	//	name=EString
 	//	'{' ('fields' '{' fields+=Field ("," fields+=Field)* '}')? ('relationships' '{' relationships+=Relationship (','
-	//	relationships+=Relationship)* '}')?
+	//	relationships+=Relationship)* '}')? ('includes' '{' Includes+=Includes (',' Includes+=Includes)* '}')?
 	//	'}';
 	public EntityElements getEntityAccess() {
 		return pEntity;
@@ -577,6 +699,20 @@ public class SimpleDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getRelationshipRule() {
 		return getRelationshipAccess().getRule();
+	}
+	
+	//Includes:
+	//	{Includes}
+	//	'INCLUDES'
+	//	name=EString
+	//	'{' ('fields' '{' field+=Field ("," field+=Field)* '}')?
+	//	'}';
+	public IncludesElements getIncludesAccess() {
+		return pIncludes;
+	}
+	
+	public ParserRule getIncludesRule() {
+		return getIncludesAccess().getRule();
 	}
 	
 	//enum DataType:

@@ -32,6 +32,7 @@ Entity returns Entity:
 	'{'
 		('fields' '{' fields+=Field ( "," fields+=Field)* '}' )?
 		('relationships' '{' relationships+=Relationship ( ',' relationships+=Relationship)* '}')?
+		('includes' '{' Includes+=Includes (',' Includes+=Includes)*'}')?
 	'}';
 
 Field returns Field:
@@ -52,6 +53,13 @@ Relationship returns Relationship:
 	'}'
 ;
 
+Includes returns Includes:
+	{Includes}
+	'INCLUDE'
+	name=EString
+	'{'
+	   ('fields' '{' field+=Field ( "," field+=Field)* '}' )?
+	'}';
 
 
 enum DataType returns DataType:

@@ -8,6 +8,7 @@ import de.senacor.com.smt.dsl.services.SimpleDSLGrammarAccess;
 import de.senacor.smt.model.smtmetamodel.Document;
 import de.senacor.smt.model.smtmetamodel.Entity;
 import de.senacor.smt.model.smtmetamodel.Field;
+import de.senacor.smt.model.smtmetamodel.Includes;
 import de.senacor.smt.model.smtmetamodel.Relationship;
 import de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage;
 import java.util.Set;
@@ -44,6 +45,9 @@ public class SimpleDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case SmtmetamodelPackage.FIELD:
 				sequence_Field(context, (Field) semanticObject); 
 				return; 
+			case SmtmetamodelPackage.INCLUDES:
+				sequence_Includes(context, (Includes) semanticObject); 
+				return; 
 			case SmtmetamodelPackage.RELATIONSHIP:
 				sequence_Relationship(context, (Relationship) semanticObject); 
 				return; 
@@ -69,7 +73,12 @@ public class SimpleDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Entity returns Entity
 	 *
 	 * Constraint:
-	 *     (name=EString (fields+=Field fields+=Field*)? (relationships+=Relationship relationships+=Relationship*)?)
+	 *     (
+	 *         name=EString 
+	 *         (fields+=Field fields+=Field*)? 
+	 *         (relationships+=Relationship relationships+=Relationship*)? 
+	 *         (Includes+=Includes Includes+=Includes*)?
+	 *     )
 	 */
 	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -91,6 +100,18 @@ public class SimpleDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     )
 	 */
 	protected void sequence_Field(ISerializationContext context, Field semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Includes returns Includes
+	 *
+	 * Constraint:
+	 *     (name=EString (field+=Field field+=Field*)?)
+	 */
+	protected void sequence_Includes(ISerializationContext context, Includes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

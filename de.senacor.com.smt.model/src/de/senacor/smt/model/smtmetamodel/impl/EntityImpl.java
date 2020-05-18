@@ -5,6 +5,7 @@ package de.senacor.smt.model.smtmetamodel.impl;
 import de.senacor.smt.model.smtmetamodel.Document;
 import de.senacor.smt.model.smtmetamodel.Entity;
 import de.senacor.smt.model.smtmetamodel.Field;
+import de.senacor.smt.model.smtmetamodel.Includes;
 import de.senacor.smt.model.smtmetamodel.Relationship;
 import de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.EntityImpl#getDocument <em>Document</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.EntityImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.EntityImpl#getRelationships <em>Relationships</em>}</li>
+ *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.EntityImpl#getIncludes <em>Includes</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +84,16 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 	 * @ordered
 	 */
 	protected EList<Relationship> relationships;
+
+	/**
+	 * The cached value of the '{@link #getIncludes() <em>Includes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIncludes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Includes> includes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,6 +211,19 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<Includes> getIncludes() {
+		if (includes == null) {
+			includes = new EObjectContainmentEList<Includes>(Includes.class, this, SmtmetamodelPackage.ENTITY__INCLUDES);
+		}
+		return includes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -228,6 +254,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 			case SmtmetamodelPackage.ENTITY__RELATIONSHIPS:
 				return ((InternalEList<?>)getRelationships()).basicRemove(otherEnd, msgs);
+			case SmtmetamodelPackage.ENTITY__INCLUDES:
+				return ((InternalEList<?>)getIncludes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -262,6 +290,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 				return getFields();
 			case SmtmetamodelPackage.ENTITY__RELATIONSHIPS:
 				return getRelationships();
+			case SmtmetamodelPackage.ENTITY__INCLUDES:
+				return getIncludes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,6 +319,10 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 				getRelationships().clear();
 				getRelationships().addAll((Collection<? extends Relationship>)newValue);
 				return;
+			case SmtmetamodelPackage.ENTITY__INCLUDES:
+				getIncludes().clear();
+				getIncludes().addAll((Collection<? extends Includes>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -313,6 +347,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 			case SmtmetamodelPackage.ENTITY__RELATIONSHIPS:
 				getRelationships().clear();
 				return;
+			case SmtmetamodelPackage.ENTITY__INCLUDES:
+				getIncludes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -333,6 +370,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 				return fields != null && !fields.isEmpty();
 			case SmtmetamodelPackage.ENTITY__RELATIONSHIPS:
 				return relationships != null && !relationships.isEmpty();
+			case SmtmetamodelPackage.ENTITY__INCLUDES:
+				return includes != null && !includes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

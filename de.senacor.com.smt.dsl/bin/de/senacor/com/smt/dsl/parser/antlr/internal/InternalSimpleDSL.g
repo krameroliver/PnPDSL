@@ -368,9 +368,67 @@ ruleEntity returns [EObject current=null]
 				newLeafNode(otherlv_15, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_5_4());
 			}
 		)?
-		otherlv_16='}'
+		(
+			otherlv_16='includes'
+			{
+				newLeafNode(otherlv_16, grammarAccess.getEntityAccess().getIncludesKeyword_6_0());
+			}
+			otherlv_17='{'
+			{
+				newLeafNode(otherlv_17, grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_6_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEntityAccess().getIncludesIncludesParserRuleCall_6_2_0());
+					}
+					lv_Includes_18_0=ruleIncludes
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEntityRule());
+						}
+						add(
+							$current,
+							"Includes",
+							lv_Includes_18_0,
+							"de.senacor.com.smt.dsl.SimpleDSL.Includes");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_19=','
+				{
+					newLeafNode(otherlv_19, grammarAccess.getEntityAccess().getCommaKeyword_6_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getEntityAccess().getIncludesIncludesParserRuleCall_6_3_1_0());
+						}
+						lv_Includes_20_0=ruleIncludes
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getEntityRule());
+							}
+							add(
+								$current,
+								"Includes",
+								lv_Includes_20_0,
+								"de.senacor.com.smt.dsl.SimpleDSL.Includes");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_21='}'
+			{
+				newLeafNode(otherlv_21, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_6_4());
+			}
+		)?
+		otherlv_22='}'
 		{
-			newLeafNode(otherlv_16, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_22, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -626,6 +684,121 @@ ruleRelationship returns [EObject current=null]
 		otherlv_6='}'
 		{
 			newLeafNode(otherlv_6, grammarAccess.getRelationshipAccess().getRightCurlyBracketKeyword_6());
+		}
+	)
+;
+
+// Entry rule entryRuleIncludes
+entryRuleIncludes returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getIncludesRule()); }
+	iv_ruleIncludes=ruleIncludes
+	{ $current=$iv_ruleIncludes.current; }
+	EOF;
+
+// Rule Includes
+ruleIncludes returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getIncludesAccess().getIncludesAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='INCLUDES'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getIncludesAccess().getINCLUDESKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getIncludesAccess().getNameEStringParserRuleCall_2_0());
+				}
+				lv_name_2_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getIncludesRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_2_0,
+						"de.senacor.com.smt.dsl.SimpleDSL.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='{'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getIncludesAccess().getLeftCurlyBracketKeyword_3());
+		}
+		(
+			otherlv_4='fields'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getIncludesAccess().getFieldsKeyword_4_0());
+			}
+			otherlv_5='{'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getIncludesAccess().getLeftCurlyBracketKeyword_4_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_2_0());
+					}
+					lv_field_6_0=ruleField
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getIncludesRule());
+						}
+						add(
+							$current,
+							"field",
+							lv_field_6_0,
+							"de.senacor.com.smt.dsl.SimpleDSL.Field");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_7=','
+				{
+					newLeafNode(otherlv_7, grammarAccess.getIncludesAccess().getCommaKeyword_4_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_3_1_0());
+						}
+						lv_field_8_0=ruleField
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getIncludesRule());
+							}
+							add(
+								$current,
+								"field",
+								lv_field_8_0,
+								"de.senacor.com.smt.dsl.SimpleDSL.Field");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_9='}'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getIncludesAccess().getRightCurlyBracketKeyword_4_4());
+			}
+		)?
+		otherlv_10='}'
+		{
+			newLeafNode(otherlv_10, grammarAccess.getIncludesAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;

@@ -22,28 +22,95 @@ class SQLDDLGenerator extends AbstractGenerator {
 	
 	def compile(Entity entity) 
 	''' 
-	«entity.genDelete»
+	«entity.genDeleteSAT»
 	
-	CREATE TABLE IF NOT EXISTS «entity.name.toUpperCase»_HUB (
-	«entity.keyColls»
-	);
 	
 	CREATE TABLE IF NOT EXISTS «entity.name.toUpperCase»_SAT (
 	«entity.addCollumns»
-	);
+	)
+	ENGINE=InnoDB
+	DEFAULT CHARSET=utf8
+	COLLATE=utf8_general_ci;
+
+	
+	############seperatot###########
+	
+	
+
+	
+	«entity.genDeleteHUB»
+	
+	CREATE TABLE IF NOT EXISTS «entity.name.toUpperCase»_HUB (
+	«entity.keyColls»
+	)
+	ENGINE=InnoDB
+	DEFAULT CHARSET=utf8
+	COLLATE=utf8_general_ci;
+	
+	
+	############seperatot###########
+	
+	
+
+
+
 	«entity.addAlter»
+
+	
+	«entity.genLinks»
+
 	'''//strg + <
 	
-	def genDelete(Entity entity)
+	def genLinks(Entity entity)
+	'''
+	«FOR rel : entity.relationships»
+	DROP TABLE IF EXISTS LINK_«rel.name.toUpperCase»;
+	CREATE TABLE IF NOT EXISTS LINK_«rel.name.toUpperCase» (
+	HK_«entity.name.toUpperCase» VARCHAR(64),
+	«FOR field : entity.fields»
+		«IF field.key=='T'»«field.name.toUpperCase» «field.getDataTypeString»«IF field != entity.fields.last»,«ELSE» «ENDIF»
+		«ENDIF»
+	«ENDFOR»
+	«rel.toEntity.name.toUpperCase»_HK VARCHAR(64))
+	ENGINE=InnoDB
+	DEFAULT CHARSET=utf8
+	COLLATE=utf8_general_ci;
+	
+	############seperatot###########
+	
+	
+	«ENDFOR»	
+	'''
+
+	
+	
+	def genDeleteSAT(Entity entity)
 	'''
 	DROP TABLE IF EXISTS «entity.name.toUpperCase»_SAT;
-	DROP TABLE IF EXISTS «entity.name.toUpperCase»_HUB;
+	
+		
+		############seperatot###########
+		
+		
+	
 	'''
+	
+	def genDeleteHUB(Entity entity)
+	'''
+	DROP TABLE IF EXISTS «entity.name.toUpperCase»_HUB;
+	
+		
+		############seperatot###########
+		
+		
+	
+	'''
+	
 	
 	def keyColls(Entity entity)
 	'''
 		«FOR field : entity.fields»
-			«IF field.key=='T'» «field.name.toUpperCase» «field.dataTypeString»
+			«IF field.key=='T'» «field.name.toUpperCase» «field.getDataTypeString»
 			«IF field != entity.fields.last»,«ELSE» «ENDIF»PRIMARY KEY( «field.name.toUpperCase»)«ENDIF»
 		«ENDFOR»
 	'''
@@ -64,7 +131,7 @@ class SQLDDLGenerator extends AbstractGenerator {
 	def getDataTypeString(Field field){
 		switch(field.type){
 			case DataType.STRING: return '''VARCHAR(«field.length»)'''
-			case DataType.NUMBER: return '''NUMBER(«field.preciscion», «field.scale»)'''
+			case DataType.NUMBER: return '''DECIMAL(«field.preciscion», «field.scale»)'''
 			case DataType.DATE: return '''DATE'''
 			default: throw new IllegalStateException 
 		}

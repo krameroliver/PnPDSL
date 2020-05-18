@@ -6,6 +6,7 @@ import de.senacor.smt.model.smtmetamodel.DataType;
 import de.senacor.smt.model.smtmetamodel.Document;
 import de.senacor.smt.model.smtmetamodel.Entity;
 import de.senacor.smt.model.smtmetamodel.Field;
+import de.senacor.smt.model.smtmetamodel.Includes;
 import de.senacor.smt.model.smtmetamodel.NamedElement;
 import de.senacor.smt.model.smtmetamodel.Relationship;
 import de.senacor.smt.model.smtmetamodel.SmtmetamodelFactory;
@@ -60,6 +61,13 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 	 * @generated
 	 */
 	private EClass relationshipEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass includesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,6 +223,16 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 	 * @generated
 	 */
 	@Override
+	public EReference getEntity_Includes() {
+		return (EReference)entityEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getField() {
 		return fieldEClass;
 	}
@@ -315,6 +333,26 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 	 * @generated
 	 */
 	@Override
+	public EClass getIncludes() {
+		return includesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getIncludes_Field() {
+		return (EReference)includesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getDataType() {
 		return dataTypeEEnum;
 	}
@@ -358,6 +396,7 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 		createEReference(entityEClass, ENTITY__DOCUMENT);
 		createEReference(entityEClass, ENTITY__FIELDS);
 		createEReference(entityEClass, ENTITY__RELATIONSHIPS);
+		createEReference(entityEClass, ENTITY__INCLUDES);
 
 		fieldEClass = createEClass(FIELD);
 		createEReference(fieldEClass, FIELD__ENTITY);
@@ -370,6 +409,9 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 		relationshipEClass = createEClass(RELATIONSHIP);
 		createEReference(relationshipEClass, RELATIONSHIP__FROM_ENTITY);
 		createEReference(relationshipEClass, RELATIONSHIP__TO_ENTITY);
+
+		includesEClass = createEClass(INCLUDES);
+		createEReference(includesEClass, INCLUDES__FIELD);
 
 		// Create enums
 		dataTypeEEnum = createEEnum(DATA_TYPE);
@@ -407,6 +449,7 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 		entityEClass.getESuperTypes().add(this.getNamedElement());
 		fieldEClass.getESuperTypes().add(this.getNamedElement());
 		relationshipEClass.getESuperTypes().add(this.getNamedElement());
+		includesEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -419,6 +462,7 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 		initEReference(getEntity_Document(), this.getDocument(), this.getDocument_Entites(), "document", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntity_Fields(), this.getField(), this.getField_Entity(), "fields", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntity_Relationships(), this.getRelationship(), this.getRelationship_FromEntity(), "relationships", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntity_Includes(), this.getIncludes(), null, "Includes", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getField_Entity(), this.getEntity(), this.getEntity_Fields(), "entity", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -431,6 +475,9 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 		initEClass(relationshipEClass, Relationship.class, "Relationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelationship_FromEntity(), this.getEntity(), this.getEntity_Relationships(), "fromEntity", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelationship_ToEntity(), this.getEntity(), null, "toEntity", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(includesEClass, Includes.class, "Includes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIncludes_Field(), this.getField(), null, "field", null, 1, -1, Includes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataTypeEEnum, DataType.class, "DataType");
