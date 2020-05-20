@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.IncludesImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.IncludesImpl#getField <em>Field</em>}</li>
+ *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.IncludesImpl#getFields <em>Fields</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,15 +52,14 @@ public class IncludesImpl extends MinimalEObjectImpl.Container implements Includ
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getField() <em>Field</em>}' containment reference list.
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getField()
+	 * @see #getFields()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Field> field;
-
+	protected EList<Field> fields;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,11 +108,26 @@ public class IncludesImpl extends MinimalEObjectImpl.Container implements Includ
 	 * @generated
 	 */
 	@Override
-	public EList<Field> getField() {
-		if (field == null) {
-			field = new EObjectContainmentEList<Field>(Field.class, this, SmtmetamodelPackage.INCLUDES__FIELD);
+	public EList<Field> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentWithInverseEList<Field>(Field.class, this, SmtmetamodelPackage.INCLUDES__FIELDS, SmtmetamodelPackage.FIELD__INCLUDES);
 		}
-		return field;
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SmtmetamodelPackage.INCLUDES__FIELDS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFields()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -124,8 +138,8 @@ public class IncludesImpl extends MinimalEObjectImpl.Container implements Includ
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SmtmetamodelPackage.INCLUDES__FIELD:
-				return ((InternalEList<?>)getField()).basicRemove(otherEnd, msgs);
+			case SmtmetamodelPackage.INCLUDES__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -140,8 +154,8 @@ public class IncludesImpl extends MinimalEObjectImpl.Container implements Includ
 		switch (featureID) {
 			case SmtmetamodelPackage.INCLUDES__NAME:
 				return getName();
-			case SmtmetamodelPackage.INCLUDES__FIELD:
-				return getField();
+			case SmtmetamodelPackage.INCLUDES__FIELDS:
+				return getFields();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,9 +172,9 @@ public class IncludesImpl extends MinimalEObjectImpl.Container implements Includ
 			case SmtmetamodelPackage.INCLUDES__NAME:
 				setName((String)newValue);
 				return;
-			case SmtmetamodelPackage.INCLUDES__FIELD:
-				getField().clear();
-				getField().addAll((Collection<? extends Field>)newValue);
+			case SmtmetamodelPackage.INCLUDES__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends Field>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,8 +191,8 @@ public class IncludesImpl extends MinimalEObjectImpl.Container implements Includ
 			case SmtmetamodelPackage.INCLUDES__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case SmtmetamodelPackage.INCLUDES__FIELD:
-				getField().clear();
+			case SmtmetamodelPackage.INCLUDES__FIELDS:
+				getFields().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -194,8 +208,8 @@ public class IncludesImpl extends MinimalEObjectImpl.Container implements Includ
 		switch (featureID) {
 			case SmtmetamodelPackage.INCLUDES__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SmtmetamodelPackage.INCLUDES__FIELD:
-				return field != null && !field.isEmpty();
+			case SmtmetamodelPackage.INCLUDES__FIELDS:
+				return fields != null && !fields.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

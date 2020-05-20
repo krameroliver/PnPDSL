@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_KEY", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'.'", "'Entity'", "'{'", "'fields'", "','", "'}'", "'relationships'", "'includes'", "'Field'", "'Type'", "'Length'", "'Precision'", "'Scale'", "'Key'", "'Relationship'", "'to'", "'INCLUDES'", "'STRING'", "'NUMBER'", "'DATE'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_KEY", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'.'", "'Entity'", "'{'", "'fields'", "','", "'}'", "'relationships'", "'includes'", "'Field'", "'Type'", "'Length'", "'Precision'", "'Scale'", "'Key'", "'Relationship'", "'to'", "'INCLUDE'", "'STRING'", "'NUMBER'", "'DATE'"
     };
     public static final int RULE_KEY=7;
     public static final int RULE_STRING=5;
@@ -1605,7 +1605,7 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIncludes"
-    // InternalSimpleDSL.g:699:1: ruleIncludes returns [EObject current=null] : ( () otherlv_1= 'INCLUDES' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_field_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_field_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) ;
+    // InternalSimpleDSL.g:699:1: ruleIncludes returns [EObject current=null] : ( () otherlv_1= 'INCLUDE' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_fields_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_fields_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) ;
     public final EObject ruleIncludes() throws RecognitionException {
         EObject current = null;
 
@@ -1618,20 +1618,20 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
         Token otherlv_10=null;
         AntlrDatatypeRuleToken lv_name_2_0 = null;
 
-        EObject lv_field_6_0 = null;
+        EObject lv_fields_6_0 = null;
 
-        EObject lv_field_8_0 = null;
+        EObject lv_fields_8_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSimpleDSL.g:705:2: ( ( () otherlv_1= 'INCLUDES' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_field_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_field_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) )
-            // InternalSimpleDSL.g:706:2: ( () otherlv_1= 'INCLUDES' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_field_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_field_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
+            // InternalSimpleDSL.g:705:2: ( ( () otherlv_1= 'INCLUDE' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_fields_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_fields_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}' ) )
+            // InternalSimpleDSL.g:706:2: ( () otherlv_1= 'INCLUDE' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_fields_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_fields_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
             {
-            // InternalSimpleDSL.g:706:2: ( () otherlv_1= 'INCLUDES' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_field_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_field_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
-            // InternalSimpleDSL.g:707:3: () otherlv_1= 'INCLUDES' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_field_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_field_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}'
+            // InternalSimpleDSL.g:706:2: ( () otherlv_1= 'INCLUDE' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_fields_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_fields_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}' )
+            // InternalSimpleDSL.g:707:3: () otherlv_1= 'INCLUDE' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'fields' otherlv_5= '{' ( (lv_fields_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_fields_8_0= ruleField ) ) )* otherlv_9= '}' )? otherlv_10= '}'
             {
             // InternalSimpleDSL.g:707:3: ()
             // InternalSimpleDSL.g:708:4: 
@@ -1646,7 +1646,7 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
 
             otherlv_1=(Token)match(input,29,FOLLOW_6); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getIncludesAccess().getINCLUDESKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getIncludesAccess().getINCLUDEKeyword_1());
             		
             // InternalSimpleDSL.g:718:3: ( (lv_name_2_0= ruleEString ) )
             // InternalSimpleDSL.g:719:4: (lv_name_2_0= ruleEString )
@@ -1683,7 +1683,7 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getIncludesAccess().getLeftCurlyBracketKeyword_3());
             		
-            // InternalSimpleDSL.g:741:3: (otherlv_4= 'fields' otherlv_5= '{' ( (lv_field_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_field_8_0= ruleField ) ) )* otherlv_9= '}' )?
+            // InternalSimpleDSL.g:741:3: (otherlv_4= 'fields' otherlv_5= '{' ( (lv_fields_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_fields_8_0= ruleField ) ) )* otherlv_9= '}' )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -1692,7 +1692,7 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
             }
             switch (alt16) {
                 case 1 :
-                    // InternalSimpleDSL.g:742:4: otherlv_4= 'fields' otherlv_5= '{' ( (lv_field_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_field_8_0= ruleField ) ) )* otherlv_9= '}'
+                    // InternalSimpleDSL.g:742:4: otherlv_4= 'fields' otherlv_5= '{' ( (lv_fields_6_0= ruleField ) ) (otherlv_7= ',' ( (lv_fields_8_0= ruleField ) ) )* otherlv_9= '}'
                     {
                     otherlv_4=(Token)match(input,16,FOLLOW_7); 
 
@@ -1702,17 +1702,17 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_5, grammarAccess.getIncludesAccess().getLeftCurlyBracketKeyword_4_1());
                     			
-                    // InternalSimpleDSL.g:750:4: ( (lv_field_6_0= ruleField ) )
-                    // InternalSimpleDSL.g:751:5: (lv_field_6_0= ruleField )
+                    // InternalSimpleDSL.g:750:4: ( (lv_fields_6_0= ruleField ) )
+                    // InternalSimpleDSL.g:751:5: (lv_fields_6_0= ruleField )
                     {
-                    // InternalSimpleDSL.g:751:5: (lv_field_6_0= ruleField )
-                    // InternalSimpleDSL.g:752:6: lv_field_6_0= ruleField
+                    // InternalSimpleDSL.g:751:5: (lv_fields_6_0= ruleField )
+                    // InternalSimpleDSL.g:752:6: lv_fields_6_0= ruleField
                     {
 
-                    						newCompositeNode(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_2_0());
+                    						newCompositeNode(grammarAccess.getIncludesAccess().getFieldsFieldParserRuleCall_4_2_0());
                     					
                     pushFollow(FOLLOW_10);
-                    lv_field_6_0=ruleField();
+                    lv_fields_6_0=ruleField();
 
                     state._fsp--;
 
@@ -1722,8 +1722,8 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
                     						}
                     						add(
                     							current,
-                    							"field",
-                    							lv_field_6_0,
+                    							"fields",
+                    							lv_fields_6_0,
                     							"de.senacor.com.smt.dsl.SimpleDSL.Field");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1733,7 +1733,7 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalSimpleDSL.g:769:4: (otherlv_7= ',' ( (lv_field_8_0= ruleField ) ) )*
+                    // InternalSimpleDSL.g:769:4: (otherlv_7= ',' ( (lv_fields_8_0= ruleField ) ) )*
                     loop15:
                     do {
                         int alt15=2;
@@ -1746,23 +1746,23 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // InternalSimpleDSL.g:770:5: otherlv_7= ',' ( (lv_field_8_0= ruleField ) )
+                    	    // InternalSimpleDSL.g:770:5: otherlv_7= ',' ( (lv_fields_8_0= ruleField ) )
                     	    {
                     	    otherlv_7=(Token)match(input,17,FOLLOW_9); 
 
                     	    					newLeafNode(otherlv_7, grammarAccess.getIncludesAccess().getCommaKeyword_4_3_0());
                     	    				
-                    	    // InternalSimpleDSL.g:774:5: ( (lv_field_8_0= ruleField ) )
-                    	    // InternalSimpleDSL.g:775:6: (lv_field_8_0= ruleField )
+                    	    // InternalSimpleDSL.g:774:5: ( (lv_fields_8_0= ruleField ) )
+                    	    // InternalSimpleDSL.g:775:6: (lv_fields_8_0= ruleField )
                     	    {
-                    	    // InternalSimpleDSL.g:775:6: (lv_field_8_0= ruleField )
-                    	    // InternalSimpleDSL.g:776:7: lv_field_8_0= ruleField
+                    	    // InternalSimpleDSL.g:775:6: (lv_fields_8_0= ruleField )
+                    	    // InternalSimpleDSL.g:776:7: lv_fields_8_0= ruleField
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_3_1_0());
+                    	    							newCompositeNode(grammarAccess.getIncludesAccess().getFieldsFieldParserRuleCall_4_3_1_0());
                     	    						
                     	    pushFollow(FOLLOW_10);
-                    	    lv_field_8_0=ruleField();
+                    	    lv_fields_8_0=ruleField();
 
                     	    state._fsp--;
 
@@ -1772,8 +1772,8 @@ public class InternalSimpleDSLParser extends AbstractInternalAntlrParser {
                     	    							}
                     	    							add(
                     	    								current,
-                    	    								"field",
-                    	    								lv_field_8_0,
+                    	    								"fields",
+                    	    								lv_fields_8_0,
                     	    								"de.senacor.com.smt.dsl.SimpleDSL.Field");
                     	    							afterParserOrEnumRuleCall();
                     	    						

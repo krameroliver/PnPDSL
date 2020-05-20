@@ -9,6 +9,7 @@ import de.senacor.smt.model.smtmetamodel.Entity
 import javax.inject.Inject
 import de.senacor.com.smt.utils.IGlobalResourceUtils
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import de.senacor.smt.model.smtmetamodel.Includes
 
 class SimpleDSLValidator extends AbstractSimpleDSLValidator {
 	
@@ -51,4 +52,21 @@ class SimpleDSLValidator extends AbstractSimpleDSLValidator {
 			error("Es muss mindestens ein Key Existieren!", SmtmetamodelPackage.Literals.NAMED_ELEMENT__NAME)
 		}
 	}
+	
+	@Check
+	def IncludeValidator(Entity entity){
+		for(entity_field : entity.fields){
+			for(include : entity.includes){
+				for(include_field : include.fields)
+				    if(include_field.name == entity_field.name){
+						error("Felder die in der Entität definiert sind dürfen nicht im Include nochmals definiert werden!", SmtmetamodelPackage.Literals.NAMED_ELEMENT__NAME)
+						}
+				}
+			}
+		}
+		
+		
+		
+
+		
 }

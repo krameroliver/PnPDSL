@@ -711,9 +711,9 @@ ruleIncludes returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='INCLUDES'
+		otherlv_1='INCLUDE'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getIncludesAccess().getINCLUDESKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getIncludesAccess().getINCLUDEKeyword_1());
 		}
 		(
 			(
@@ -750,17 +750,17 @@ ruleIncludes returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_2_0());
+						newCompositeNode(grammarAccess.getIncludesAccess().getFieldsFieldParserRuleCall_4_2_0());
 					}
-					lv_field_6_0=ruleField
+					lv_fields_6_0=ruleField
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getIncludesRule());
 						}
 						add(
 							$current,
-							"field",
-							lv_field_6_0,
+							"fields",
+							lv_fields_6_0,
 							"de.senacor.com.smt.dsl.SimpleDSL.Field");
 						afterParserOrEnumRuleCall();
 					}
@@ -774,17 +774,17 @@ ruleIncludes returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_3_1_0());
+							newCompositeNode(grammarAccess.getIncludesAccess().getFieldsFieldParserRuleCall_4_3_1_0());
 						}
-						lv_field_8_0=ruleField
+						lv_fields_8_0=ruleField
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getIncludesRule());
 							}
 							add(
 								$current,
-								"field",
-								lv_field_8_0,
+								"fields",
+								lv_fields_8_0,
 								"de.senacor.com.smt.dsl.SimpleDSL.Field");
 							afterParserOrEnumRuleCall();
 						}

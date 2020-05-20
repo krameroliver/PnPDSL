@@ -58,7 +58,7 @@ Includes returns Includes:
 	'INCLUDE'
 	name=EString
 	'{'
-	   ('fields' '{' field+=Field ( "," field+=Field)* '}' )?
+	   ('fields' '{' fields+=Field ( "," fields+=Field)* '}' )?
 	'}';
 
 

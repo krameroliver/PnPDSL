@@ -26,6 +26,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="preciscion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" eType="#//Includes"
+        eOpposite="#//Includes/fields"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataType">
     <eLiterals name="NOT_SET"/>
@@ -39,7 +41,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="toEntity" eType="#//Entity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Includes" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1" upperBound="-1"
-        eType="#//Field" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" lowerBound="1"
+        upperBound="-1" eType="#//Field" containment="true" eOpposite="#//Field/includes"/>
   </eClassifiers>
 </ecore:EPackage>

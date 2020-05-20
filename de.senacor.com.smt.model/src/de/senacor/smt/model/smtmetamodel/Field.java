@@ -17,6 +17,7 @@ package de.senacor.smt.model.smtmetamodel;
  *   <li>{@link de.senacor.smt.model.smtmetamodel.Field#getPreciscion <em>Preciscion</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.Field#getScale <em>Scale</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.Field#getKey <em>Key</em>}</li>
+ *   <li>{@link de.senacor.smt.model.smtmetamodel.Field#getIncludes <em>Includes</em>}</li>
  * </ul>
  *
  * @see de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage#getField()
@@ -160,5 +161,29 @@ public interface Field extends NamedElement {
 	 * @generated
 	 */
 	void setKey(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Includes</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.senacor.smt.model.smtmetamodel.Includes#getFields <em>Fields</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Includes</em>' container reference.
+	 * @see #setIncludes(Includes)
+	 * @see de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage#getField_Includes()
+	 * @see de.senacor.smt.model.smtmetamodel.Includes#getFields
+	 * @model opposite="fields" transient="false"
+	 * @generated
+	 */
+	Includes getIncludes();
+
+	/**
+	 * Sets the value of the '{@link de.senacor.smt.model.smtmetamodel.Field#getIncludes <em>Includes</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Includes</em>' container reference.
+	 * @see #getIncludes()
+	 * @generated
+	 */
+	void setIncludes(Includes value);
 
 } // Field

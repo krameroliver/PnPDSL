@@ -62,7 +62,7 @@ public class IncludesItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addFieldPropertyDescriptor(object);
+			addFieldsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,19 +90,19 @@ public class IncludesItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Field feature.
+	 * This adds a property descriptor for the Fields feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFieldPropertyDescriptor(Object object) {
+	protected void addFieldsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Includes_field_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Includes_field_feature", "_UI_Includes_type"),
-				 SmtmetamodelPackage.Literals.INCLUDES__FIELD,
+				 getString("_UI_Includes_fields_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Includes_fields_feature", "_UI_Includes_type"),
+				 SmtmetamodelPackage.Literals.INCLUDES__FIELDS,
 				 true,
 				 false,
 				 true,
@@ -123,7 +123,7 @@ public class IncludesItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SmtmetamodelPackage.Literals.INCLUDES__FIELD);
+			childrenFeatures.add(SmtmetamodelPackage.Literals.INCLUDES__FIELDS);
 		}
 		return childrenFeatures;
 	}
@@ -182,7 +182,7 @@ public class IncludesItemProvider
 			case SmtmetamodelPackage.INCLUDES__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SmtmetamodelPackage.INCLUDES__FIELD:
+			case SmtmetamodelPackage.INCLUDES__FIELDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -202,7 +202,7 @@ public class IncludesItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SmtmetamodelPackage.Literals.INCLUDES__FIELD,
+				(SmtmetamodelPackage.Literals.INCLUDES__FIELDS,
 				 SmtmetamodelFactory.eINSTANCE.createField()));
 	}
 

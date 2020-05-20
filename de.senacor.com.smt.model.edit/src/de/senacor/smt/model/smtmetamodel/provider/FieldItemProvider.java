@@ -65,6 +65,7 @@ public class FieldItemProvider
 			addPreciscionPropertyDescriptor(object);
 			addScalePropertyDescriptor(object);
 			addKeyPropertyDescriptor(object);
+			addIncludesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -197,6 +198,28 @@ public class FieldItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Includes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncludesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Field_includes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Field_includes_feature", "_UI_Field_type"),
+				 SmtmetamodelPackage.Literals.FIELD__INCLUDES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

@@ -5,6 +5,7 @@ package de.senacor.smt.model.smtmetamodel.impl;
 import de.senacor.smt.model.smtmetamodel.DataType;
 import de.senacor.smt.model.smtmetamodel.Entity;
 import de.senacor.smt.model.smtmetamodel.Field;
+import de.senacor.smt.model.smtmetamodel.Includes;
 import de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.FieldImpl#getPreciscion <em>Preciscion</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.FieldImpl#getScale <em>Scale</em>}</li>
  *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.FieldImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link de.senacor.smt.model.smtmetamodel.impl.FieldImpl#getIncludes <em>Includes</em>}</li>
  * </ul>
  *
  * @generated
@@ -361,12 +363,59 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 	 * @generated
 	 */
 	@Override
+	public Includes getIncludes() {
+		if (eContainerFeatureID() != SmtmetamodelPackage.FIELD__INCLUDES) return null;
+		return (Includes)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIncludes(Includes newIncludes, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newIncludes, SmtmetamodelPackage.FIELD__INCLUDES, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIncludes(Includes newIncludes) {
+		if (newIncludes != eInternalContainer() || (eContainerFeatureID() != SmtmetamodelPackage.FIELD__INCLUDES && newIncludes != null)) {
+			if (EcoreUtil.isAncestor(this, newIncludes))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newIncludes != null)
+				msgs = ((InternalEObject)newIncludes).eInverseAdd(this, SmtmetamodelPackage.INCLUDES__FIELDS, Includes.class, msgs);
+			msgs = basicSetIncludes(newIncludes, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SmtmetamodelPackage.FIELD__INCLUDES, newIncludes, newIncludes));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SmtmetamodelPackage.FIELD__ENTITY:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetEntity((Entity)otherEnd, msgs);
+			case SmtmetamodelPackage.FIELD__INCLUDES:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetIncludes((Includes)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -381,6 +430,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 		switch (featureID) {
 			case SmtmetamodelPackage.FIELD__ENTITY:
 				return basicSetEntity(null, msgs);
+			case SmtmetamodelPackage.FIELD__INCLUDES:
+				return basicSetIncludes(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -395,6 +446,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 		switch (eContainerFeatureID()) {
 			case SmtmetamodelPackage.FIELD__ENTITY:
 				return eInternalContainer().eInverseRemove(this, SmtmetamodelPackage.ENTITY__FIELDS, Entity.class, msgs);
+			case SmtmetamodelPackage.FIELD__INCLUDES:
+				return eInternalContainer().eInverseRemove(this, SmtmetamodelPackage.INCLUDES__FIELDS, Includes.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -421,6 +474,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return getScale();
 			case SmtmetamodelPackage.FIELD__KEY:
 				return getKey();
+			case SmtmetamodelPackage.FIELD__INCLUDES:
+				return getIncludes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -455,6 +510,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 			case SmtmetamodelPackage.FIELD__KEY:
 				setKey((String)newValue);
 				return;
+			case SmtmetamodelPackage.FIELD__INCLUDES:
+				setIncludes((Includes)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -488,6 +546,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 			case SmtmetamodelPackage.FIELD__KEY:
 				setKey(KEY_EDEFAULT);
 				return;
+			case SmtmetamodelPackage.FIELD__INCLUDES:
+				setIncludes((Includes)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -514,6 +575,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return scale != SCALE_EDEFAULT;
 			case SmtmetamodelPackage.FIELD__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+			case SmtmetamodelPackage.FIELD__INCLUDES:
+				return getIncludes() != null;
 		}
 		return super.eIsSet(featureID);
 	}

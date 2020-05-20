@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.senacor.smt.model.smtmetamodel.Includes#getField <em>Field</em>}</li>
+ *   <li>{@link de.senacor.smt.model.smtmetamodel.Includes#getFields <em>Fields</em>}</li>
  * </ul>
  *
  * @see de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage#getIncludes()
@@ -23,14 +23,16 @@ import org.eclipse.emf.common.util.EList;
 public interface Includes extends NamedElement {
 
 	/**
-	 * Returns the value of the '<em><b>Field</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
 	 * The list contents are of type {@link de.senacor.smt.model.smtmetamodel.Field}.
+	 * It is bidirectional and its opposite is '{@link de.senacor.smt.model.smtmetamodel.Field#getIncludes <em>Includes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Field</em>' containment reference list.
-	 * @see de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage#getIncludes_Field()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Fields</em>' containment reference list.
+	 * @see de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage#getIncludes_Fields()
+	 * @see de.senacor.smt.model.smtmetamodel.Field#getIncludes
+	 * @model opposite="includes" containment="true" required="true"
 	 * @generated
 	 */
-	EList<Field> getField();
+	EList<Field> getFields();
 } // Includes

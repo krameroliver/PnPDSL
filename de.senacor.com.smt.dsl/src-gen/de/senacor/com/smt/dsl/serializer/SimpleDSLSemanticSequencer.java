@@ -109,7 +109,7 @@ public class SimpleDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Includes returns Includes
 	 *
 	 * Constraint:
-	 *     (name=EString (field+=Field field+=Field*)?)
+	 *     (name=EString (fields+=Field fields+=Field*)?)
 	 */
 	protected void sequence_Includes(ISerializationContext context, Includes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -71,8 +71,8 @@ public class SimpleDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getRelationshipAccess().getNameAssignment_2(), "rule__Relationship__NameAssignment_2");
 			builder.put(grammarAccess.getRelationshipAccess().getToEntityAssignment_5(), "rule__Relationship__ToEntityAssignment_5");
 			builder.put(grammarAccess.getIncludesAccess().getNameAssignment_2(), "rule__Includes__NameAssignment_2");
-			builder.put(grammarAccess.getIncludesAccess().getFieldAssignment_4_2(), "rule__Includes__FieldAssignment_4_2");
-			builder.put(grammarAccess.getIncludesAccess().getFieldAssignment_4_3_1(), "rule__Includes__FieldAssignment_4_3_1");
+			builder.put(grammarAccess.getIncludesAccess().getFieldsAssignment_4_2(), "rule__Includes__FieldsAssignment_4_2");
+			builder.put(grammarAccess.getIncludesAccess().getFieldsAssignment_4_3_1(), "rule__Includes__FieldsAssignment_4_3_1");
 		}
 	}
 	

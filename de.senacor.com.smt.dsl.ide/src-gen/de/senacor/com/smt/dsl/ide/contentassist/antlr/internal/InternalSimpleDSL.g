@@ -2061,9 +2061,9 @@ rule__Includes__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getIncludesAccess().getINCLUDESKeyword_1()); }
-	'INCLUDES'
-	{ after(grammarAccess.getIncludesAccess().getINCLUDESKeyword_1()); }
+	{ before(grammarAccess.getIncludesAccess().getINCLUDEKeyword_1()); }
+	'INCLUDE'
+	{ after(grammarAccess.getIncludesAccess().getINCLUDEKeyword_1()); }
 )
 ;
 finally {
@@ -2250,9 +2250,9 @@ rule__Includes__Group_4__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getIncludesAccess().getFieldAssignment_4_2()); }
-	(rule__Includes__FieldAssignment_4_2)
-	{ after(grammarAccess.getIncludesAccess().getFieldAssignment_4_2()); }
+	{ before(grammarAccess.getIncludesAccess().getFieldsAssignment_4_2()); }
+	(rule__Includes__FieldsAssignment_4_2)
+	{ after(grammarAccess.getIncludesAccess().getFieldsAssignment_4_2()); }
 )
 ;
 finally {
@@ -2357,9 +2357,9 @@ rule__Includes__Group_4_3__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getIncludesAccess().getFieldAssignment_4_3_1()); }
-	(rule__Includes__FieldAssignment_4_3_1)
-	{ after(grammarAccess.getIncludesAccess().getFieldAssignment_4_3_1()); }
+	{ before(grammarAccess.getIncludesAccess().getFieldsAssignment_4_3_1()); }
+	(rule__Includes__FieldsAssignment_4_3_1)
+	{ after(grammarAccess.getIncludesAccess().getFieldsAssignment_4_3_1()); }
 )
 ;
 finally {
@@ -2641,30 +2641,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Includes__FieldAssignment_4_2
+rule__Includes__FieldsAssignment_4_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_2_0()); }
+		{ before(grammarAccess.getIncludesAccess().getFieldsFieldParserRuleCall_4_2_0()); }
 		ruleField
-		{ after(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_2_0()); }
+		{ after(grammarAccess.getIncludesAccess().getFieldsFieldParserRuleCall_4_2_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Includes__FieldAssignment_4_3_1
+rule__Includes__FieldsAssignment_4_3_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_3_1_0()); }
+		{ before(grammarAccess.getIncludesAccess().getFieldsFieldParserRuleCall_4_3_1_0()); }
 		ruleField
-		{ after(grammarAccess.getIncludesAccess().getFieldFieldParserRuleCall_4_3_1_0()); }
+		{ after(grammarAccess.getIncludesAccess().getFieldsFieldParserRuleCall_4_3_1_0()); }
 	)
 ;
 finally {

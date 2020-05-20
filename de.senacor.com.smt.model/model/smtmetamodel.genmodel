@@ -32,13 +32,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smtmetamodel.ecore#//Field/preciscion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smtmetamodel.ecore#//Field/scale"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smtmetamodel.ecore#//Field/Key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smtmetamodel.ecore#//Field/includes"/>
     </genClasses>
     <genClasses ecoreClass="smtmetamodel.ecore#//Relationship">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference smtmetamodel.ecore#//Relationship/fromEntity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smtmetamodel.ecore#//Relationship/toEntity"/>
     </genClasses>
     <genClasses ecoreClass="smtmetamodel.ecore#//Includes">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smtmetamodel.ecore#//Includes/field"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smtmetamodel.ecore#//Includes/fields"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

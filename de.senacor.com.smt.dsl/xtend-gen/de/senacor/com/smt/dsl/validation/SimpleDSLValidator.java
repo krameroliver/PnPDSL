@@ -6,6 +6,7 @@ import de.senacor.com.smt.utils.IGlobalResourceUtils;
 import de.senacor.smt.model.smtmetamodel.DataType;
 import de.senacor.smt.model.smtmetamodel.Entity;
 import de.senacor.smt.model.smtmetamodel.Field;
+import de.senacor.smt.model.smtmetamodel.Includes;
 import de.senacor.smt.model.smtmetamodel.SmtmetamodelPackage;
 import javax.inject.Inject;
 import org.eclipse.emf.common.util.EList;
@@ -63,6 +64,25 @@ public class SimpleDSLValidator extends AbstractSimpleDSLValidator {
     }
     if ((keys < 1)) {
       this.error("Es muss mindestens ein Key Existieren!", SmtmetamodelPackage.Literals.NAMED_ELEMENT__NAME);
+    }
+  }
+  
+  @Check
+  public void IncludeValidator(final Entity entity) {
+    EList<Field> _fields = entity.getFields();
+    for (final Field entity_field : _fields) {
+      EList<Includes> _includes = entity.getIncludes();
+      for (final Includes include : _includes) {
+        EList<Field> _fields_1 = include.getFields();
+        for (final Field include_field : _fields_1) {
+          String _name = include_field.getName();
+          String _name_1 = entity_field.getName();
+          boolean _equals = Objects.equal(_name, _name_1);
+          if (_equals) {
+            this.error("Felder die in der Entität definiert sind dürfen nicht im Include nochmals definiert werden!", SmtmetamodelPackage.Literals.NAMED_ELEMENT__NAME);
+          }
+        }
+      }
     }
   }
 }

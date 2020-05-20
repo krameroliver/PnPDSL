@@ -303,6 +303,16 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 	 * @generated
 	 */
 	@Override
+	public EReference getField_Includes() {
+		return (EReference)fieldEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRelationship() {
 		return relationshipEClass;
 	}
@@ -343,7 +353,7 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 	 * @generated
 	 */
 	@Override
-	public EReference getIncludes_Field() {
+	public EReference getIncludes_Fields() {
 		return (EReference)includesEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -405,13 +415,14 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 		createEAttribute(fieldEClass, FIELD__PRECISCION);
 		createEAttribute(fieldEClass, FIELD__SCALE);
 		createEAttribute(fieldEClass, FIELD__KEY);
+		createEReference(fieldEClass, FIELD__INCLUDES);
 
 		relationshipEClass = createEClass(RELATIONSHIP);
 		createEReference(relationshipEClass, RELATIONSHIP__FROM_ENTITY);
 		createEReference(relationshipEClass, RELATIONSHIP__TO_ENTITY);
 
 		includesEClass = createEClass(INCLUDES);
-		createEReference(includesEClass, INCLUDES__FIELD);
+		createEReference(includesEClass, INCLUDES__FIELDS);
 
 		// Create enums
 		dataTypeEEnum = createEEnum(DATA_TYPE);
@@ -471,13 +482,14 @@ public class SmtmetamodelPackageImpl extends EPackageImpl implements Smtmetamode
 		initEAttribute(getField_Preciscion(), ecorePackage.getEInt(), "preciscion", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_Scale(), ecorePackage.getEInt(), "scale", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_Key(), ecorePackage.getEString(), "Key", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getField_Includes(), this.getIncludes(), this.getIncludes_Fields(), "includes", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relationshipEClass, Relationship.class, "Relationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelationship_FromEntity(), this.getEntity(), this.getEntity_Relationships(), "fromEntity", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelationship_ToEntity(), this.getEntity(), null, "toEntity", null, 0, 1, Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(includesEClass, Includes.class, "Includes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIncludes_Field(), this.getField(), null, "field", null, 1, -1, Includes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIncludes_Fields(), this.getField(), this.getField_Includes(), "fields", null, 1, -1, Includes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataTypeEEnum, DataType.class, "DataType");
